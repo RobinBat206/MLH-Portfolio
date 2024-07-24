@@ -86,6 +86,16 @@ def post_time_line_post():
     timeline_post = TimelinePost.create(name=name, email=email, content=content)
     return redirect(url_for('timeline'))
 
+@app.route('/api/timeline_post', methods=['GET'])
+def get_time_line_post():
+    return {
+        'timeline_posts': [
+            model_to_dict(p)
+            for p in TimelinePost.select().order_by(TimelinePost.created_at.desc())
+        ]
+    }
+
+
 @app.route('/timeline')
 def timeline():
     posts = TimelinePost.select().order_by(TimelinePost.created_at.desc())

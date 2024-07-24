@@ -7,6 +7,16 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
+    <header class="nav-bar">
+        <nav class="nav-content">
+          {% include 'navbar.html' %}
+          <a href="/" aria-label="Homepage">
+            <div class="nav-logo">
+              <img src="./static/img/logo.svg" alt="Logo" />
+            </div>
+          </a>
+        </nav>
+      </header>
     <h1>{{ title }}</h1>
 
     <!-- Form for submitting new timeline posts -->
