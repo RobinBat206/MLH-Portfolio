@@ -19,28 +19,30 @@
     <title>{{ title }}</title>
   </head>
 
-  <body>
-    <header class="nav-bar">
-      <nav class="nav-content">
-        {% include 'navbar.html' %}
+  <body class="bg-gray-100 font-['Roboto'] text-gray-900">
+    <header class="bg-white shadow-md">
+      <nav class="container mx-auto flex items-center justify-between p-4">
         <a href="/" aria-label="Homepage">
-          <div class="nav-logo">
-            <img src="./static/img/logo.svg" alt="Logo" />
+          <div class="flex items-center">
+            <img src="./static/img/logo.svg" alt="Logo" class="h-10" />
           </div>
         </a>
+        {% include 'navbar.html' %}
       </nav>
     </header>
 
-    <main>
-      <title>MLH Fellow</title>
+    <main class="container mx-auto p-6">
       <!-- Profile Section -->
-      <section class="profile text-white">
-        <div id="profile-picture" class="profile-picture">
-          <img src="./static/img/profilePic.png" alt="Profile Picture" />
+      <section class="text-center py-12">
+        <div class="mb-6">
+          <img src="./static/img/profilePic.png" alt="Profile Picture" class="w-32 h-32 rounded-full mx-auto" />
         </div>
-        <h1>{{ title }}</h1>
+        <h1 class="text-3xl font-bold text-gray-800">{{ title }}</h1>
       </section>
-      <hr />
     </main>
+
+    <footer class="bg-gray-800 text-white py-4 text-center">
+      <p>&copy; {{ current_year }} Robin Batingan. All rights reserved.</p>
+    </footer>
   </body>
 </html>

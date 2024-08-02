@@ -19,26 +19,30 @@
     <title>{{ title }}</title>
   </head>
 
-  <body>
-    <header class="nav-bar">
-      <nav class="nav-content">
-        {% include 'navbar.html' %}
+  <body class="bg-gray-100 font-['Roboto'] text-gray-900">
+    <header class="bg-white shadow-md">
+      <nav class="container mx-auto flex items-center justify-between p-4">
         <a href="/" aria-label="Homepage">
-          <div class="nav-logo">
-            <img src="./static/img/logo.svg" alt="Logo" />
+          <div class="flex items-center">
+            <img src="./static/img/logo.svg" alt="Logo" class="h-10" />
           </div>
         </a>
+        {% include 'navbar.html' %}
       </nav>
     </header>
 
-    <main>
-      <section class="profile text-white">
-        <h1 class="text-4xl font-bold">{{about.name}}</h1>
-        <hr />
-        <div id="about-yourself" class="profile-picture">
-          {{about.info}}
+    <main class="container mx-auto p-6">
+      <section class="bg-white p-6 rounded-lg shadow-md">
+        <h1 class="text-4xl font-bold text-gray-800 mb-4">{{ about.name }}</h1>
+        <hr class="mb-6 border-gray-300" />
+        <div id="about-yourself" class="text-lg text-gray-700">
+          {{ about.info }}
         </div>
       </section>
     </main>
+
+    <footer class="bg-gray-800 text-white py-4 text-center">
+      <p>&copy; {{ current_year }} Robin Batingan. All rights reserved.</p>
+    </footer>
   </body>
 </html>

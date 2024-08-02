@@ -19,34 +19,37 @@
     <title>{{ title }}</title>
   </head>
 
-  <body>
-    <header class="nav-bar">
-      <nav class="nav-content">
-        {% include 'navbar.html' %}
+  <body class="bg-gray-100 font-['Roboto'] text-gray-900">
+    <header class="bg-white shadow-md">
+      <nav class="container mx-auto flex items-center justify-between p-4">
         <a href="/" aria-label="Homepage">
-          <div class="nav-logo">
-            <img src="./static/img/logo.svg" alt="Logo" />
+          <div class="flex items-center">
+            <img src="./static/img/logo.svg" alt="Logo" class="h-10" />
           </div>
         </a>
+        {% include 'navbar.html' %}
       </nav>
     </header>
 
-    <main>
-      <section class="places text-white">
-        <h1 class="text-4xl font-bold">{{ places }}</h1>
-        <div id="places" class="profile-picture">
-          <article>
-            
-            <div class="img">
+    <main class="container mx-auto p-6">
+      <section class="bg-white p-6 rounded-lg shadow-md">
+        <h1 class="text-4xl font-bold text-gray-800 mb-4">{{ places }}</h1>
+        <div id="places" class="space-y-6">
+          <article class="bg-gray-50 p-4 rounded-lg shadow-sm">
+            <div class="mb-4">
               <!-- Map Image -->
-              <img class="map" src="./static/img/travelMap.png" alt="World Map" />
+              <img class="w-full h-auto rounded-md" src="./static/img/travelMap.png" alt="World Map" />
             </div>
-            <p>
-              Red pins are places I have lived for an extended period of time. Blue pins are places I have visited
+            <p class="text-gray-700">
+              Red pins are places I have lived for an extended period of time. Blue pins are places I have visited.
             </p>
           </article>
         </div>
       </section>
     </main>
+
+    <footer class="bg-gray-800 text-white py-4 text-center">
+      <p>&copy; {{ current_year }} Robin Batingan. All rights reserved.</p>
+    </footer>
   </body>
 </html>

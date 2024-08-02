@@ -1,7 +1,7 @@
 
 context = {
         'title': 'Robin Batingan Portfolio',
-        'about': {'name': 'About Me', 'info': 'Hello! My name is Robin. I am a 3rd year Computer Science student that loves technology! I hava a strong backgroun in Java and Python with other additional skills. In my freetime I play basketball and rock climb.'},
+        'about': {'name': 'About Me', 'info': 'Hello! My name is Robin. I am a 4th year Computer Science student that loves technology! I hava a strong backgroun in Java and Python with other additional skills. In my freetime I play basketball and rock climb.'},
         'work': 'Work Experience',
         'work_experiences': [
             {

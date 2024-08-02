@@ -1,51 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta property="og:title" content="Personal Portfolio" />
+    <meta property="og:description" content="My Personal Portfolio!!!" />
+    <meta property="og:url" content="{{ url }}" />
+
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="./static/styles/main.css" />
+    <link rel="icon" href="./static/img/favicon.ico" type="image/x-icon" />
     <title>{{ title }}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <!-- Add this line to include the favicon -->
-    <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/x-icon">
-</head>
+  </head>
 
-<body>
-    <header class="nav-bar">
-        <nav class="nav-content">
-          {% include 'navbar.html' %}
-          <a href="/" aria-label="Homepage">
-            <div class="nav-logo">
-              <img src="./static/img/logo.svg" alt="Logo" />
-            </div>
-          </a>
-        </nav>
-      </header>
-    <h1>{{ title }}</h1>
+  <body class="bg-gray-100 font-['Roboto'] text-gray-900">
+    <header class="bg-white shadow-md">
+      <nav class="container mx-auto flex items-center justify-between p-4">
+        <a href="/" aria-label="Homepage">
+          <div class="flex items-center">
+            <img src="./static/img/logo.svg" alt="Logo" class="h-10" />
+          </div>
+        </a>
+        {% include 'navbar.html' %}
+      </nav>
+    </header>
+    
+    <main class="container mx-auto p-6">
+      <h1 class="text-4xl font-bold mb-6">{{ title }}</h1>
 
-    <!-- Form for submitting new timeline posts -->
-    <h2>Submit a Timeline Post!!!</h2>
-    <form action="{{ url_for('post_time_line_post') }}" method="post">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required><br><br>
+      <!-- Form for submitting new timeline posts -->
+      <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+        <h2 class="text-2xl font-semibold mb-4">Submit a Timeline Post</h2>
+        <form action="{{ url_for('post_time_line_post') }}" method="post" class="space-y-4">
+          <div>
+            <label for="name" class="block text-lg font-medium">Name:</label>
+            <input type="text" id="name" name="name" required class="w-full p-2 border border-gray-300 rounded-md">
+          </div>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br><br>
+          <div>
+            <label for="email" class="block text-lg font-medium">Email:</label>
+            <input type="email" id="email" name="email" required class="w-full p-2 border border-gray-300 rounded-md">
+          </div>
 
-        <label for="content">Content:</label>
-        <textarea id="content" name="content" rows="4" cols="50" required></textarea><br><br>
+          <div>
+            <label for="content" class="block text-lg font-medium">Content:</label>
+            <textarea id="content" name="content" rows="4" required class="w-full p-2 border border-gray-300 rounded-md"></textarea>
+          </div>
 
-        <input type="submit" value="Submit">
-    </form>
+          <button type="submit" class="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600">Submit</button>
+        </form>
+      </section>
 
-    <!-- Display timeline posts -->
-    <h2>Timeline Posts</h2>
-    <ul>
-        {% for post in timeline_posts %}
-            <li>
-                <strong>{{ post.name }}</strong> ({{ post.email }}): {{ post.content }}
-                <em>({{ post.created_at }})</em>
+      <!-- Display timeline posts -->
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">Timeline Posts</h2>
+        <ul class="space-y-4">
+          {% for post in timeline_posts %}
+            <li class="bg-white p-4 rounded-lg shadow-sm">
+              <strong class="text-lg">{{ post.name }}</strong> <span class="text-gray-600">({{ post.email }})</span>
+              <p class="mt-2">{{ post.content }}</p>
+              <em class="block mt-2 text-gray-500 text-sm">({{ post.created_at }})</em>
             </li>
-        {% endfor %}
-    </ul>
-</body>
+          {% endfor %}
+        </ul>
+      </section>
+    </main>
+    <footer class="bg-gray-800 text-white py-4 text-center">
+      <p>&copy; {{ current_year }} Robin Batingan. All rights reserved.</p>
+    </footer>
+  </body>
 </html>
