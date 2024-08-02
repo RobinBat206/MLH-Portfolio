@@ -5,6 +5,7 @@ from peewee import *
 import datetime
 from playhouse.shortcuts import model_to_dict
 import re
+from app.info import context
 
 load_dotenv()
 app = Flask(__name__)
@@ -36,7 +37,7 @@ mydb.create_tables([TimelinePost])
 
 @app.route('/')
 def index():
-    return render_template('index.html',  url=os.getenv("URL"))
+    return render_template('index.html',  **context, url=os.getenv("URL"))
 
 @app.route('/about')
 def about():
@@ -44,22 +45,22 @@ def about():
 
 @app.route('/work')
 def work():
-    return render_template('work.html',  url=os.getenv("URL"))
+    return render_template('work.html',  **context, url=os.getenv("URL"))
 
 @app.route('/hobby')
 def hobby():
-    return render_template('hobby.html',  url=os.getenv("URL"))
+    return render_template('hobby.html',  **context, url=os.getenv("URL"))
 
 @app.route('/education')
 def education():
-    return render_template('education.html',  url=os.getenv("URL"))
+    return render_template('education.html',  **context, url=os.getenv("URL"))
 
 @app.route('/place')
 def place():
-    return render_template('place.html', url=os.getenv("URL"))
+    return render_template('place.html', **context, url=os.getenv("URL"))
 
 def navbar():
-    return render_template('navbar.html',  url=os.getenv("URL"))
+    return render_template('navbar.html',  **context, url=os.getenv("URL"))
 
 @app.route('/api/timeline_post', methods=['POST'])
 def post_time_line_post():
