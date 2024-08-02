@@ -7,16 +7,12 @@ cd /root/MLH-Portfolio/ || exit
 echo "Fetching latest changes from GitHub..."
 git fetch && git reset origin/main --hard
 
-# Activate the Python virtual environment
-echo "Activating the virtual environment..."
-source /root/MLH-Portfolio/app/python3-virtualenv/bin/activate
+# Stop and remove existing containers
+echo "Stopping and removing existing Docker containers..."
+docker compose -f docker-compose.prod.yml down
 
-# Install Python dependencies
-echo "Installing Python dependencies..."
-pip install -r requirements.txt
-
-# Restart the myportfolio service
-echo "Restarting myportfolio service..."
-sudo systemctl restart myportfolio.service
+# Build and start the containers
+echo "Building and starting Docker containers..."
+docker compose -f docker-compose.prod.yml up -d --build
 
 echo "Redeployment complete."
