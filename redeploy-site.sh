@@ -1,28 +1,22 @@
 #!/bin/bash
 
-# Define the tmux session name
-SESSION_NAME="flask_app"
+# Navigate to the project directory
+cd /root/MLH-Portfolio/ || exit
 
-# Function to check if the tmux session exists
-session_exists() {
-  tmux has-session -t $SESSION_NAME 2>/dev/null
-}
+# Fetch and reset to the latest changes from the main branch on GitHub
+echo "Fetching latest changes from GitHub..."
+git fetch && git reset origin/main --hard
 
-# Close the existing tmux session if it exists
-if session_exists; then
-  echo "Closing existing tmux session..."
-  tmux kill-session -t $SESSION_NAME
-fi
+# Activate the Python virtual environment
+echo "Activating the virtual environment..."
+source /root/MLH-Portfolio/app/python3-virtualenv/bin/activate
 
-# Pull updates from GitHub
-echo "Pulling updates from GitHub..."
-git pull origin main
+# Install Python dependencies
+echo "Installing Python dependencies..."
+pip install -r requirements.txt
 
-# Start the Flask application in a new tmux session
-echo "Starting Flask application in a new tmux session..."
-tmux new-session -d -s $SESSION_NAME
-tmux send-keys -t $SESSION_NAME 'source python3-virtualenv/bin/activate' C-m  # Adjust if using a different virtual environment setup
-tmux send-keys -t $SESSION_NAME 'export FLASK_APP=app.py' C-m  # Adjust to your Flask entry point
-tmux send-keys -t $SESSION_NAME 'flask run --host=0.0.0.0' C-m
+# Restart the myportfolio service
+echo "Restarting myportfolio service..."
+sudo systemctl restart myportfolio.service
 
-echo "Flask application has been restarted in a new tmux session."
+echo "Redeployment complete."
