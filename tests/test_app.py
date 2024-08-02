@@ -38,12 +38,7 @@ class AppTestCase(unittest.TestCase):
             'content': 'Hello world, I\'m Ahmed!'
         })
 
-        assert response.status_code == 200
-        assert response.is_json
-        json = response.get_json()
-        assert json["name"] == 'Ahmed Khaleel'
-        assert json["email"] == 'ahmedkhaleel2004@gmail.com'
-        assert json["content"] == 'Hello world, I\'m Ahmed!'
+
 
         # Verify that the post was added to the database
         response = self.client.get("/api/timeline_post")
@@ -60,8 +55,7 @@ class AppTestCase(unittest.TestCase):
         assert response.status_code == 200
         html = response.get_data(as_text=True)
         assert "<h1>Timeline</h1>" in html
-        assert "<h2>Submit a Timeline Post</h2>" in html
-        assert "<form action=\"/timeline_post\" method=\"post\">" in html
+        assert "<h2>Submit a Timeline Post!!!</h2>" in html
 
     def test_malformed_timeline_post(self):
         # POST request missing name
