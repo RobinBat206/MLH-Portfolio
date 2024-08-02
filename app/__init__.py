@@ -41,7 +41,7 @@ def index():
 
 @app.route('/about')
 def about():
-    return render_template('about.html',  url=os.getenv("URL"))
+    return render_template('about.html',  **context, url=os.getenv("URL"))
 
 @app.route('/work')
 def work():
