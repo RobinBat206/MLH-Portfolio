@@ -21,13 +21,21 @@
 
   <body class="bg-gray-100 font-['Roboto'] text-gray-900">
     <header class="bg-white shadow-md">
-      <nav class="container mx-auto flex items-center justify-between p-4">
+      <nav class="container mx-auto flex items-center justify-between p-4 relative">
         <a href="/" aria-label="Homepage">
           <div class="flex items-center">
             <img src="./static/img/logo.svg" alt="Logo" class="h-10" />
           </div>
         </a>
-        {% include 'navbar.html' %}
+        <!-- Toggle Button for Mobile -->
+        <button id="menu-toggle" class="lg:hidden text-gray-800">
+          <span class="sr-only">Open menu</span>
+          &#9776; <!-- Hamburger Icon -->
+        </button>
+        <!-- Navbar Menu -->
+        <div id="nav-menu" class="hidden lg:flex flex-col lg:flex-row absolute lg:relative top-full lg:top-auto left-0 lg:left-auto bg-white lg:bg-transparent lg:flex lg:items-center w-full lg:w-auto lg:space-x-6 mt-2 lg:mt-0">
+          {% include 'navbar.html' %}
+        </div>
       </nav>
     </header>
 
@@ -54,5 +62,6 @@
     <footer class="bg-gray-800 text-white py-4 text-center">
       <p>&copy; {{ current_year }} Robin Batingan. All rights reserved.</p>
     </footer>
+    <script src="./static/js/script.js"></script>
   </body>
 </html>

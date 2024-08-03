@@ -40,6 +40,28 @@ body {
   justify-content: flex-end; /* Align navigation items to the right */
 }
 
+#menu-toggle {
+  background: none;
+  border: none;
+  font-size: 24px;
+}
+
+/* Hide nav-menu by default on mobile */
+#nav-menu {
+  display: none;
+}
+
+#nav-menu.show {
+  display: block; /* Make it visible when the .show class is added */
+}
+
+/* Show nav-menu on larger screens */
+@media (min-width: 1024px) {
+  #nav-menu {
+    display: flex;
+  }
+}
+
 /* Main Content Padding */
 main {
   padding-top: 80px; /* Adjust based on the height of the navbar */
