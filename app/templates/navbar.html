@@ -19,31 +19,17 @@
   <title>{{ title }}</title>
 </head>
 
-<body>
-  <header class="bg-gray-800 p-4 mt-[-30px] left-0 right-0">
-    <nav class="container mx-auto">
+<body class="bg-gray-100 text-gray-900 font-roboto">
+  <header class=".nav-bar">
+    <nav class="container mx-auto p-4 flex justify-between items-center">
       <ul class="flex space-x-4 text-white">
-        <li>
-          <a href="{{ url_for('index') }}" class="hover:text-gray-400">Home</a>
-        </li>
-        <li>
-          <a href="{{ url_for('about') }}" class="hover:text-gray-400">About</a>
-        </li>
-        <li>
-          <a href="{{ url_for('work') }}" class="hover:text-gray-400">Work Experience</a>
-        </li>
-        <li>
-          <a href="{{ url_for('hobby') }}" class="hover:text-gray-400">Hobbies</a>
-        </li>
-        <li>
-          <a href="{{ url_for('education') }}" class="hover:text-gray-400">Education</a>
-        </li>
-        <li>
-          <a href="{{ url_for('place') }}" class="hover:text-gray-400">Travel</a>
-        </li>
-        <li>
-          <a href="{{ url_for('timeline') }}" class="hover:text-gray-400">Timeline</a>
-        </li>
+        <li><a href="{{ url_for('index') }}" class="hover:text-gray-400">Home</a></li>
+        <li><a href="{{ url_for('about') }}" class="hover:text-gray-400">About</a></li>
+        <li><a href="{{ url_for('work') }}" class="hover:text-gray-400">Work Experience</a></li>
+        <li><a href="{{ url_for('hobby') }}" class="hover:text-gray-400">Hobbies</a></li>
+        <li><a href="{{ url_for('education') }}" class="hover:text-gray-400">Education</a></li>
+        <li><a href="{{ url_for('place') }}" class="hover:text-gray-400">Travel</a></li>
+        <li><a href="{{ url_for('timeline') }}" class="hover:text-gray-400">Timeline</a></li>
       </ul>
     </nav>
   </header>

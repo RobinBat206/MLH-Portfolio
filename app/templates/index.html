@@ -20,7 +20,7 @@
   </head>
 
   <body class="bg-gray-100 font-['Roboto'] text-gray-900">
-    <header class="bg-white shadow-md">
+    <header class="header-custom">
       <nav class="container mx-auto flex items-center justify-between p-4 relative">
         <a href="/" aria-label="Homepage">
           <div class="flex items-center">
@@ -33,7 +33,8 @@
           &#9776; <!-- Hamburger Icon -->
         </button>
         <!-- Navbar Menu -->
-        <div id="nav-menu" class="hidden lg:flex flex-col lg:flex-row absolute lg:relative top-full lg:top-auto left-0 lg:left-auto bg-white lg:bg-transparent lg:flex lg:items-center w-full lg:w-auto lg:space-x-6 mt-2 lg:mt-0">
+        <div id="nav-menu" class="hidden lg:flex flex-col lg:flex-row absolute lg:relative 
+         top-full lg:top-auto left-0 lg:left-auto bg-gray-500 lg:bg-transparent lg:items-center w-full lg:w-auto lg:space-x-6 mt-2 lg:mt-0">
           {% include 'navbar.html' %}
         </div>
       </nav>
@@ -49,7 +50,7 @@
       </section>
     </main>
 
-    <footer class="bg-gray-800 text-white py-4 text-center">
+    <footer class="footer">
       <p>&copy; {{ current_year }} Robin Batingan. All rights reserved.</p>
     </footer>
     <script src="./static/js/script.js"></script>
