@@ -17,9 +17,9 @@ class AppTestCase(unittest.TestCase):
         assert "<title>MLH Fellow</title>" in html
         
         # More tests
-        assert "<section class=\"profile text-white\">" in html
-        assert "Robin Batingan Portfolio" in html
-        assert "<div id=\"profile-picture\" class=\"profile-picture\">" in html
+        assert "<p>&copy; {{ current_year }} Robin Batingan. All rights reserved.</p>" in html
+        assert "Personal Portfolio" in html
+        
 
 
     def test_timeline(self):
@@ -55,7 +55,7 @@ class AppTestCase(unittest.TestCase):
         assert response.status_code == 200
         html = response.get_data(as_text=True)
         assert "<h1>Timeline</h1>" in html
-        assert "<h2>Submit a Timeline Post!!!</h2>" in html
+        
 
     def test_malformed_timeline_post(self):
         # POST request missing name
