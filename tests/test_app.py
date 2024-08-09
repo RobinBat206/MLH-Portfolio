@@ -17,7 +17,7 @@ class AppTestCase(unittest.TestCase):
         assert "<title>MLH Fellow</title>" in html
         
         # More tests
-        assert "<p>&copy; {{ current_year }} Robin Batingan. All rights reserved.</p>" in html
+        assert "<footer class=\"footer\">" in html
         assert "Personal Portfolio" in html
         
 
