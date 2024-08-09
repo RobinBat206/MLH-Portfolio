@@ -17,6 +17,16 @@
     <link rel="stylesheet" href="./static/styles/main.css" />
     <link rel="icon" href="./static/img/favicon.ico" type="image/x-icon" />
     <title>{{ title }}</title>
+
+    <!-- Leaflet's CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+      #map { height: 650px; }
+    </style>
+
+
+
   </head>
 
   <body class="bg-gray-100 font-['Roboto'] text-gray-900">
@@ -48,6 +58,11 @@
               <!-- Map Image -->
               <img class="w-full h-auto rounded-md" src="./static/img/travelMap.png" alt="World Map" />
             </div>
+
+            <div id="map">
+              <a href="https://www.maptiler.com" style="position:absolute;left:10px;bottom:10px;z-index:999;"><img src="https://api.maptiler.com/resources/logo.svg" alt="MapTiler logo"></a>
+            </div>
+            <p><a href="https://www.maptiler.com/copyright/" target="_blank" rel="noopener">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">&copy; OpenStreetMap contributors</a></p>
             <p class="text-gray-700">
               Red pins are places I have lived for an extended period of time. Blue pins are places I have visited.
             </p>
@@ -60,5 +75,16 @@
       <p>&copy; {{ current_year }} Robin Batingan. All rights reserved.</p>
     </footer>
     <script src="./static/js/script.js"></script>
+    <script>
+      const key = '67MrWbygyRPYHwBJMmgl';
+      const map = L.map('map').setView([47.390000, 122.180000], 14); //starting position
+      L.tileLayer(`https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=${key}`,{ //style URL
+        tileSize: 512,
+        zoomOffset: 12,
+        minZoom: 1,
+        attribution: "\u003ca href=\"https://www.maptiler.com/copyright/\" target=\"_blank\"\u003e\u0026copy; MapTiler\u003c/a\u003e \u003ca href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\"\u003e\u0026copy; OpenStreetMap contributors\u003c/a\u003e",
+        crossOrigin: true
+      }).addTo(map);
+    </script>
   </body>
 </html>
