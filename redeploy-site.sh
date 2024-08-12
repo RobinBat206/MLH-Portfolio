@@ -16,3 +16,5 @@ echo "Building and starting Docker containers..."
 docker compose -f docker-compose.prod.yml up -d --build
 
 echo "Redeployment complete."
+
+chmod +x "$0"
