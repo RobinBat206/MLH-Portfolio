@@ -49,7 +49,7 @@ context = {
         'hobbies': [
             {
                 'name': 'Basketball',
-                'image': ['./static/img/jimmyButler.jpg','./static/img/vicWemb.jpg'],
+                'image': ['./static/img/jimmyButler.jpg','./static/img/vicWemb.jpg','./static/img/LBJ.jpeg'],
                 'description': 'I enjoy both playing and watching basketball.'
             },
             {
